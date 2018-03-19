@@ -5,7 +5,7 @@
     		<ul class="top-nav-left row-l">
     			<li>2018-03-16</li>
     			<li>2.36547Mh/s</li>
-    			<li>B Bitcoin</li>
+    			<li>฿ Bitcoin</li>
     		</ul>
     		
     		<ul class="top-nav-right row-l">
@@ -18,7 +18,7 @@
 	    			 background-color="transparent" text-color="#00c1de"
 	    			 active-text-color="#fff">
 				 	<el-submenu index="1">
-		    			<template slot="title">简体中文</template>
+		    			<template slot="title">{{languageText}}</template>
 			    		<el-menu-item index="1-1">简体中文</el-menu-item>
 				    	<el-menu-item index="1-2">英文</el-menu-item>
 				    	<el-menu-item index="1-3">繁文</el-menu-item>
@@ -63,6 +63,8 @@ export default {
             activeIndex: '',
             isAddClass:0,//是否添加.fixedActive,
             languageIndex:'1-1',
+            languageText:'中文简体',
+            languageArr:['简体中文','英文','繁文'],
             routeObj:{
                 '1':'/index',
                 '2':'/dashboard/dashboard',
@@ -71,6 +73,7 @@ export default {
         };
     },
     methods: {
+    	//导航切换
         handleSelect(key, keyPath) {
             if(this.activeIndex!=key){
                 this.activeIndex = key;
@@ -86,9 +89,10 @@ export default {
             	this.isAddClass=0;
             }
         },
+        //语言切换
         languageSelect(key,keyPath){
         	var languageIndex=key.substring(key.length-1);
-        	console.log(languageIndex);
+        	this.languageText=this.languageArr[languageIndex-1];
         }
     },
     created(){

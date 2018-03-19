@@ -7,6 +7,51 @@
 				    </el-carousel-item>
 			  </el-carousel>
 		</div>
+		
+		<el-breadcrumb separator-class="el-icon-arrow-right">
+		  <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+		  <el-breadcrumb-item>活动详情</el-breadcrumb-item>
+		</el-breadcrumb>
+		
+		<el-table class="pollTable" :data="pooldata" stripe>
+			<el-table-column label="标记" prop="mark" width="60">
+				<template slot-scope="scope">
+					<i class="el-icon-success"></i>
+				</template>
+					
+			</el-table-column>
+			<el-table-column label="货币名字" prop="coinName" sortable>
+				<template slot-scope="scope">
+					<div>
+						<i class="el-icon-time"></i>
+						<span>{{scope.row.coinName}}</span>
+					</div>
+					
+				</template>	
+			</el-table-column>
+			<el-table-column label="算法" prop="compute" sortable></el-table-column>
+			<el-table-column label="费用" prop="cost" sortable></el-table-column>
+			<el-table-column label="矿工数量" prop="mun" sortable></el-table-column>
+			<el-table-column label="效率" prop="efficient" sortable></el-table-column>
+			<el-table-column label="营收" prop="income" sortable></el-table-column>
+			<el-table-column label="掘矿难度" prop="difficulty" sortable>
+				<template slot-scope="scope">
+					<!--<el-progress :text-inside="true" :stroke-width="18" :percentage="scope.row.difficulty" :status="scope.row.difficulty>=50 ? 'success' : 'exception'"></el-progress>-->
+					<v-progress :progressHeight="14"  :progressNum="scope.row.difficulty"></v-progress>
+				</template>	
+			</el-table-column>
+			<el-table-column label="上次开矿时间" prop="time" sortable></el-table-column>
+		</el-table>
+		
+		
+		<p>{{num}}</p>
+		<div style="200px">
+			<v-progress :progressHeight="14"  :progressNum="num"></v-progress>
+		</div>
+		
+		
+		<el-button @click="aa">click</el-button>
+		
 		<div class="same-layout welcome">
 			<div class="same-content">
 				<h2>欢迎来到CMPOOL矿池</h2>
@@ -15,9 +60,10 @@
 					  更完善的功能、更方便的使用和更丰厚透明的收益，cmpool矿池提供比特币、莱特币、以太坊等多种数字货币的挖矿服务，
 					  并支持PPS、PPLNS、SOLO等多种付款方式。
 				</p>
-				<el-button type="sele-blue">开始挖矿</el-button>
+				<el-button type="sele-blue" @click="diging">开始挖矿</el-button>
 			</div>
 		</div>
+		
 		<div class="same-layout advantage">
 			<div class="same-content">
 				<h2>CMPOOL矿池优势</h2>
@@ -40,19 +86,97 @@
 </template>
 <script>
 import headTime from "../headTime.vue";
+import vProgress from "../../common/v-progress";
 export default {
 	name:'home_index',
+	components: {
+    	headTime,
+    	vProgress
+  	},
 	data(){
 		return {
+			num:1,
+			pooldata:[
+				{
+					mark:25,
+					coinName:'比特币',
+					compute:'哈希算法',
+					cost:3000,
+					mun:35,
+					efficient:'39%',
+					income:4444,
+					difficulty:100,
+					time:'2018-3-18'
+				},{
+					mark:25,
+					coinName:'比特币',
+					compute:'哈希算法',
+					cost:3000,
+					mun:35,
+					efficient:'39%',
+					income:3333,
+					difficulty:80,
+					time:'2018-3-18'
+				},{
+					mark:25,
+					coinName:'比特币',
+					compute:'哈希算法',
+					cost:3000,
+					mun:35,
+					efficient:'39%',
+					income:22222,
+					difficulty:60,
+					time:'2018-3-18'
+				},{
+					mark:25,
+					coinName:'比特币',
+					compute:'哈希算法',
+					cost:3000,
+					mun:35,
+					efficient:'39%',
+					income:1111,
+					difficulty:25,
+					time:'2018-3-18'
+				}
+			]
 			
 		}
 	},
-  	components: {
-    	headTime,
+	mounted(){
+		
+		setInterval(()=>{
+			this.pooldata.forEach((item,index)=>{
+				item.difficulty=item.difficulty-1;
+			})
+//			this.pooldata[0].difficulty=this.pooldata[0].difficulty-1;
+//			console.log(this.pooldata[0].difficulty)
+		},200)
+//		var dom=document.querySelectorAll('.el-progress-bar__innerText');
+//		setTimeout(()=>{
+//			document.querySelectorAll('.el-progress-bar__innerText')[0].innerHTML=160+'%'
+//		},1);
+//		console.log(document.querySelectorAll('.el-progress-bar__innerText'))
+	},
+  	methods:{
+  		//开始挖矿
+  		diging(){
+  			console.log('开始挖矿');
+  		},
+  		aa(){
+  			this.num=this.num+1;
+  		}
+  	},
+  	watch:{
+//		num:function(){
+//			console.log('change');
+//		}
   	}
 };
 </script>
 <style lang="less">
+	.el-table td>.cell{
+		text-align: left !important;
+	}
 .home-index {
 	min-width: 1180px;
 	.home-banner{
