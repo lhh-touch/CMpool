@@ -23,10 +23,15 @@ export default {
 		}
 	},
 	mounted(){
-		console.log(this.initW);
-//		console.log(typeof this.progressHeight)
 		if(this.progressHeight!==undefined||this.progressHeight!==""){
 			this.isSetH=true;
+		}
+	},
+	watch:{
+		'progressNum':function(curVal,oldVal){
+			this.myWidthStyle={
+				width:curVal+'%',
+			}
 		}
 	}
 };
@@ -61,14 +66,17 @@ export default {
 	}
 	/*根据不用的数值使用不同的背景色*/
 	.p-success{
-		background: #55c955;
-		
+		/*background: #55c955;*/
+		background: repeating-linear-gradient(-45deg,red, #ccc 20px, green 20px);
 	}
 	.p-middle{
-		background: #ffaf0a;
+		/*background: #ffaf0a;*/
+		/*background: repeating-linear-gradient(-45deg, #ff0000, #00ff00 20px, #0000ff 25px);*/
+		background: -webkit-repeating-linear-gradient(-45deg, #f18b70, #f18b70 10px, #978f8d 5px, #978f8d 20px);
 	}
 	.p-danger{
-		background: #f60;
+		/*background: #f60;*/
+		background: repeating-linear-gradient(-45deg, #ff0000, #00ff00 10%, #0000ff 15%);
 	}
 }
 

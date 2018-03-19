@@ -150,7 +150,7 @@ export default {
 			})
 //			this.pooldata[0].difficulty=this.pooldata[0].difficulty-1;
 //			console.log(this.pooldata[0].difficulty)
-		},200)
+		},1000)
 //		var dom=document.querySelectorAll('.el-progress-bar__innerText');
 //		setTimeout(()=>{
 //			document.querySelectorAll('.el-progress-bar__innerText')[0].innerHTML=160+'%'
