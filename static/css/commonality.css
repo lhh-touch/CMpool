@@ -1,0 +1,133 @@
+html,
+body,
+div,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+a,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+textarea,
+button,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  background: transparent;
+  border: 0;
+  font-size: 100%;
+  max-height: 99999px;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  vertical-align: baseline;
+  list-style: none;
+  text-decoration: none;
+  box-sizing:border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+}
+html {
+  font-family: "SimSun","宋体","Arial Narrow";
+  overflow: scroll;
+  background-color:#f6f6f6;
+}
+.clearfix:after {
+  content: "";
+  height: 0;
+  line-height: 0;
+  display: block;
+  visibility: hidden;
+  clear: both
+}
+.clearfix::before {
+  content: "";
+  height: 0;
+  line-height: 0;
+  display: block;
+  visibility: hidden;
+  clear: both
+}
+.clearfix {
+  zoom: 1;
+}
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+.pr{
+  position: relative;
+}
+.pa{
+  position: absolute;
+}
+.divsion{
+  padding: 60px;
+}
+.text_center{
+  text-align: center
+}
+.text_left{
+  text-align: left;
+}
+html,body{
+	min-width: 1180px;
+  height: 100% ;
+  position: relative
+}
+.el-container{
+  height: 100%;
+}
+/* register model's footer skip commoncitytStyle*/
+.help {
+  text-align: right;
+  margin-right: 5px;
+  font-size: 14px;
+}
+.help .help_account,
+help_pwd {
+  border-right: 1px solid rgb(144, 147, 153);
+  padding-right: 10px;
+}

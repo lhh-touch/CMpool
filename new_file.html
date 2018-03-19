@@ -1,0 +1,228 @@
+<template>
+<div class="home-index">
+<div class="home-banner" style="width: 100%;">
+		  <el-carousel :interval="100000">
+			    <el-carousel-item v-for="item in 4" :key="item">
+			    	<img src="../../../static/img/banner_01.jpg" alt="" />
+			    </el-carousel-item>
+		  </el-carousel>
+</div>
+<el-container style="position: relative;">
+  <el-main style="position: relative;">
+  	
+  	
+      <head-time/>
+    <!--<el-carousel :interval="5000" arrow="always">
+        <el-carousel-item v-for="item in 4" :key="item">
+            <h3>{{ item }}</h3>
+        </el-carousel-item>
+    </el-carousel>-->
+    <div class="block" >
+        <!--<span class="demonstration">Click 指示器触发</span>-->
+        <el-carousel trigger="click" height="150px">
+	        <el-carousel-item v-for="item in 4" :key="item">
+	            <h3>{{ item }}</h3>
+	        </el-carousel-item>
+        </el-carousel>
+    </div>
+    <!-- <el-row class="coin_btn">
+        <el-col>
+            <el-col :span="12">
+                <router-link to="">
+                    <div class="bitcoin">
+                        <i class="fa fa-fw fa-btc fa-3x"></i>
+                        <span>
+                            {{$t('message.bitcoin_btn')}}
+                        </span>
+                    </div>
+                </router-link>
+            </el-col>
+            <el-col :span="12">
+                <router-link to="">
+                    <div class="zcash">
+                        <i class="fa fa-cny fa-3x"></i>
+                        <span>
+                            {{$t('message.zcash_btn')}}
+                        </span>
+                    </div>
+                </router-link>
+            </el-col>
+        </el-col>
+    </el-row> -->
+    <el-row class="intro">
+        <el-col :span="8" :xl="8" :lg="8" :md="8" :sm="8" :xs="24">
+            <div class="">
+                <div class="text_center">
+                    <i class="fa fa-users fa-4x"></i>
+                    <h3>{{$t('introduce.title[0]')}}</h3>
+                </div>
+                <div class="text_left int_cont">
+                    <ul>
+                        <li>{{$t('introduce.one[0]')}}</li>
+                        <li>{{$t('introduce.one[1]')}}</li>
+                        <li>{{$t('introduce.one[2]')}}</li>
+                        <li>{{$t('introduce.one[3]')}}</li>
+                    </ul>
+                </div>
+            </div>
+        </el-col>
+        <el-col :span="8" :xl="8" :lg="8" :md="8" :sm="8" :xs="24">
+            <div class="text_center">
+                    <i class="fa fa-keyboard-o fa-4x"></i>
+                    <h3>{{$t('introduce.title[1]')}}</h3>
+            </div>
+            <div class="text_left int_cont">
+                <ul>
+                    <li>{{$t('introduce.two[0]')}}</li>
+                    <li>{{$t('introduce.two[1]')}}</li>
+                    <li>{{$t('introduce.two[2]')}}</li>
+                </ul>
+            </div>
+        </el-col>
+        <el-col :span="8" :xl="8" :lg="8" :md="8" :sm="8" :xs="24">
+            <div class="text_center">
+                    <i class="fa fa-bitcoin fa-4x"></i>
+                    <h3>{{$t('introduce.title[2]')}}</h3>
+            </div>
+            <div class="text_left int_cont">
+                <p>{{$t('introduce.three')}}</p>
+            </div>
+        </el-col>
+    </el-row>
+    <el-row>
+        <el-col :span="8" :xl="8" :lg="8" :md="8" :sm="8" :xs="24">
+            <div class="text_center">
+                    <i class="fa fa-globe fa-4x"></i>
+                    <h3>{{$t('introduce.title[3]')}}</h3>
+            </div>
+            <div class="text_left int_cont">
+                <p>{{$t('introduce.four')}}</p>
+            </div>
+        </el-col>
+        <el-col :span="8" :xl="8" :lg="8" :md="8" :sm="8" :xs="24">
+            <div class="text_center">
+                    <i class="fa fa-shield fa-4x"></i>
+                    <h3>{{$t('introduce.title[4]')}}</h3>
+            </div>
+            <div class="text_left int_cont">
+                <p>{{$t('introduce.five')}}</p>
+            </div>
+        </el-col>
+        <el-col :span="8" :xl="8" :lg="8" :md="8" :sm="8" :xs="24">
+            <div class="text_center">
+                    <i class="fa fa-comments-o fa-4x"></i>
+                    <h3>{{$t('introduce.title[5]')}}</h3>
+            </div>
+            <div class="text_left int_cont">
+                <p>{{$t('introduce.six')}}</p>
+            </div>
+        </el-col>
+        
+    </el-row>
+  </el-main>
+    <!--<el-footer>
+        <el-row>
+            <el-col :xl="24" :lg="24" :md="24" :sm="24" :xs="24" >
+                <footers/>
+            </el-col>
+        </el-row>
+    </el-footer>-->
+</el-container>  
+</div> 
+</template>
+<script>
+import headTime from "../headTime.vue";
+
+export default {
+  components: {
+    headTime,
+  }
+};
+</script>
+<style lang="less">
+.home-index {
+	
+				.home-banner{
+						.el-carousel__button{
+							width: 10px;
+							height: 10px;
+							border-radius: 50%;
+							border: 1px solid #fff;
+							background: transparent;
+						}
+						.el-carousel__indicator.is-active{
+								.el-carousel__button{
+										background: #FFFFFF !important;
+								}
+						}
+					.el-carousel{
+							width: 100%;
+							height: 560px;
+							.el-carousel__container{
+									height: 100%;
+									.el-carousel__item{
+										img{
+											max-width: 1920px;
+										}
+									}
+									
+							}
+					}
+				}
+				
+        .el-carousel__item h3 {
+            color: #475669;
+            font-size: 14px;
+            opacity: 0.75;
+            line-height: 150px;
+            margin: 0;
+        }
+
+        .el-carousel__item:nth-child(2n) {
+            background-color: #99a9bf;
+        }
+        
+        .el-carousel__item:nth-child(2n+1) {
+            background-color: #d3dce6;
+        }
+
+        .coin_btn {
+        margin-top: 50px;
+        
+        }
+        .text_center h3{
+            text-align: center;
+        }
+        .coin_btn .bitcoin,
+        .zcash {
+        width: 250px;
+        height: 100px;
+        border: 1px solid rgb(153, 169, 191);
+        text-align: center;
+        line-height: 100px;
+        border-radius: 5px;
+        margin: 0 auto;
+        font-size: 16px;
+        }
+        .el-main{
+            width: 1180px;
+            margin: 0 auto;
+        }
+        .coin_btn i {
+        position: relative;
+        top: 50%;
+        transform: translateY(-80%);
+        }
+        .int_cont {
+        /* padding-left: 150px;
+        padding-right: 100px; */
+        text-align: center;
+        }
+        .intro {
+        margin-top: 50px;
+        }
+
+}
+
+</style>
+    
